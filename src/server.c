@@ -6,7 +6,7 @@
 /*   By: lchristi <lchristi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 16:33:41 by lchristi          #+#    #+#             */
-/*   Updated: 2022/01/06 19:03:06 by lchristi         ###   ########.fr       */
+/*   Updated: 2022/01/07 18:45:32 by lchristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 int main()
 {
-	struct sigaction	sa;
+	//struct sigaction	sa;
 
 	//reset_data();
 	ft_putstr("pid: ");
 	ft_putnbr(getpid());
 	ft_putstr("\n");
-	sa.sa_flags = SA_SIGINFO;
+	//sa.sa_flags = SA_SIGINFO;
 	//
-	
+	//
+	while (1)
+		sleep(1);
 }

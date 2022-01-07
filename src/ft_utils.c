@@ -6,13 +6,11 @@
 /*   By: lchristi <lchristi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 17:00:33 by lchristi          #+#    #+#             */
-/*   Updated: 2022/01/06 22:01:55 by lchristi         ###   ########.fr       */
+/*   Updated: 2022/01/07 20:22:01 by lchristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minitalk.h"
-//#include <stdio.h>
-//#include <stdlib.h>
 
 void	ft_putstr(char *str)
 {
