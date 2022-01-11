@@ -1,4 +1,8 @@
 # minitalk
+Сокет IPC  
+Побитовые операции  
+Сигналы  
+  
 https://habr.com/ru/post/141206/  
 https://habr.com/ru/post/122823/  
 https://tproger.ru/translations/bitwise-operations/  
