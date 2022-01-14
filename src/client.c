@@ -34,7 +34,7 @@ static void	send2s(int pid, char *str)
 	while (i--)
 	{
 		kill(pid, SIGUSR2);
-		usleep (100);
+		usleep (300);
 	}
 }
 
@@ -45,8 +45,6 @@ int	main(int argc, char **argv)
 		ft_putstr("Invalid number of arguments\n");
 		exit(EXIT_FAILURE);
 	}
-	if (ft_atoi(argv[1]) == 0)
-		ft_putstr("input PID !");
 	if (kill(ft_atoi(argv[1]), SIGUSR2) == -1)
 	{
 		ft_putstr("Wrong PID!\n");

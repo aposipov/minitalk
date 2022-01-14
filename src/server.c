@@ -33,7 +33,7 @@ static void	handler_s(int sig, siginfo_t *siginfo, void *context)
 int	main(void)
 {
 	struct sigaction	sa;
-	
+
 	ft_putstr("*mandatory part*\n");
 	ft_putstr(" server is run!\n");
 	ft_putstr(" PID : ");
@@ -41,8 +41,10 @@ int	main(void)
 	ft_putstr("\n");
 	sa.sa_sigaction = handler_s;
 	sa.sa_flags = SA_SIGINFO;
-	sigaction(SIGUSR1, &sa, 0);
-	sigaction(SIGUSR2, &sa, 0);
+	if ((sigaction(SIGUSR1, &sa, 0)) == -1)
+		ft_putstr("sigaction error\n");
+	if ((sigaction(SIGUSR2, &sa, 0)) == -1)
+		ft_putstr("sigaction error\n");
 	while (1)
 		pause();
 	return (0);
