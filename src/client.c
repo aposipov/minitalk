@@ -12,32 +12,46 @@
 
 #include "../inc/minitalk.h"
 
-int main(int argc, char **argv)
+static void	send2s(int pid, char *str)
 {
-	int	pid;
-	char *str;
-	int i;
+	int		i;
+	char	c;
 
-	if (argc < 3)
+	while (*str)
 	{
-		write(1, "check arguments", 15);
-		exit(-1);
-	}
-	pid = atoi(argv[1]); //atoi
-	str = argv[2];
-	while(*str)
-	{
-		i = 7;
-		while (i >= 0)
+		i = 8;
+		c = *str++;
+		while (i--)
 		{
-			if (*str & (1 << i))
+			if (c >> i & 1)
 				kill(pid, SIGUSR1);
 			else
 				kill(pid, SIGUSR2);
-			i--;
-			usleep(100);
+			usleep(300);
 		}
-		str++;
 	}
+	i = 8;
+	while (i--)
+	{
+		kill(pid, SIGUSR2);
+		usleep (100);
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc != 3)
+	{
+		ft_putstr("Invalid number of arguments\n");
+		exit(EXIT_FAILURE);
+	}
+	if (ft_atoi(argv[1]) == 0)
+		ft_putstr("input PID !");
+	if (kill(ft_atoi(argv[1]), SIGUSR2) == -1)
+	{
+		ft_putstr("Wrong PID!\n");
+		exit(EXIT_FAILURE);
+	}
+	send2s(ft_atoi(argv[1]), argv[2]);
 	return (0);
 }

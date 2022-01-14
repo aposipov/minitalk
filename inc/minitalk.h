@@ -17,15 +17,10 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-//typedef struct s_data
-//{
-//	int		i;
-//	char	c;
-//	int		client_pid;
-//}	t_data;
-
 void	ft_putstr(char *str);
 void	ft_putnbr(int n);
 void	ft_putchar(char c);
+size_t	ft_strlen(const char *str);
+int		ft_atoi(const char *nptr);
 
 #endif
