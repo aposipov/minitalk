@@ -5,6 +5,7 @@
   
 длина символа ASCII 8 bit  
 длина символа UNICODE 16 bit  
+$ http://book.itep.ru/10/unix1018  
 https://unicode-table.com/ru/1F923/  
 
 http://www.unit-conversion.info/texttools/random-string-generator/#data генератор символов
