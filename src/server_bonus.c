@@ -36,6 +36,7 @@ void	handle_sigs(int sig, siginfo_t *siginfo, void *context)
 		ft_putchar(c);
 		c = 0;
 		kill(client_pid, SIGUSR1);
+		usleep(10);
 	}
 	else
 		c = c << 1;

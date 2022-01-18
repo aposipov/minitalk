@@ -50,14 +50,14 @@ static void	send(int pid, char *str)
 				kill(pid, SIGUSR2);
 			else
 				kill(pid, SIGUSR1);
-			usleep(400);
+			usleep(100);
 		}
 	}
 	i = 8;
 	while (i--)
 	{
 		kill(pid, SIGUSR1);
-		usleep (400);
+		usleep (10);
 	}
 }
 
