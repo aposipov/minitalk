@@ -35,18 +35,6 @@ static void	handle_eot_response(int sig, siginfo_t *siginfo, void *context)
 	}
 }
 
-/*static void	request_eot(int pid)
-{
-	int	i;
-
-	i = 8;
-	while (i--)
-	{
-		kill(pid, SIGUSR1);
-		usleep(300);
-	}
-}*/
-
 static void	send(int pid, char *str)
 {
 	int		i;
@@ -62,14 +50,14 @@ static void	send(int pid, char *str)
 				kill(pid, SIGUSR2);
 			else
 				kill(pid, SIGUSR1);
-			usleep(300);
+			usleep(400);
 		}
 	}
 	i = 8;
 	while (i--)
 	{
 		kill(pid, SIGUSR1);
-		usleep (300);
+		usleep (400);
 	}
 }
 

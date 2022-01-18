@@ -34,7 +34,7 @@ void	ft_putnbr(int n)
 	ft_putchar((n % 10) + '0');
 }
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(const char *ptr)
 {
 	int			i;
 	int			sign;
