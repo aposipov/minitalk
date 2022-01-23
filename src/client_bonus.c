@@ -12,30 +12,41 @@
 
 #include "../inc/minitalk.h"
 
-int	hint(void)
+static void	count_byte(int sig, siginfo_t *siginfo, void *context)
 {
-	ft_putstr("usage: ./client [pid] [string]\n");
-	return (0);
-}
-
-static void	handle_eot_response(int sig, siginfo_t *siginfo, void *context)
-{
-	static int	received = 0;
+	static int	count = 0;
 
 	(void)siginfo;
 	(void)context;
-
 	if (sig == SIGUSR1)
-		++received;
+		++count;
 	else
 	{
-		ft_putnbr(received);
+		ft_putnbr(count);
 		ft_putstr(" byte\n");
 		exit(0);
 	}
 }
 
-static void	send(int pid, char *str)
+static void	ft_zero(int pid)
+{
+	int	i;
+
+	i = 8;
+	while (i--)
+	{
+		kill(pid, SIGUSR1);
+		usleep(50);
+	}
+}
+
+static void	ft_check(void)
+{
+	ft_putstr("\ncheck pid!\n");
+	exit(0);
+}
+
+static void	send2s(int pid, char *str)
 {
 	int		i;
 	char	c;
@@ -47,35 +58,37 @@ static void	send(int pid, char *str)
 		while (i--)
 		{
 			if (c >> i & 1)
-				kill(pid, SIGUSR2);
+			{
+				if (kill(pid, SIGUSR2) == -1)
+					ft_check();
+			}
 			else
-				kill(pid, SIGUSR1);
-			usleep(100);
+				if (kill(pid, SIGUSR1) == -1)
+					ft_check();
+			usleep(200);
 		}
 	}
-	i = 8;
-	while (i--)
-	{
-		kill(pid, SIGUSR1);
-		usleep (10);
-	}
+	ft_zero(pid);
 }
 
 int	main(int argc, char **argv)
 {
 	struct sigaction	sa;
 
-	if (argc != 3)
-		return (hint());
+	if (argc != 3 || !ft_strlen(argv[2]))
+	{
+		ft_putstr("carefully! -> ./client [pid] [string]\n");
+		exit(0);
+	}
 	ft_putstr("client sent    : ");
 	ft_putnbr(ft_strlen(argv[2]));
 	ft_putstr(" byte\n");
 	ft_putstr("server received: ");
-	sa.sa_sigaction = handle_eot_response;
+	sa.sa_sigaction = count_byte;
 	sa.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &sa, 0);
 	sigaction(SIGUSR2, &sa, 0);
-	send(ft_atoi(argv[1]), argv[2]);
+	send2s(ft_atoi(argv[1]), argv[2]);
 	while (1)
 		pause();
 	return (0);
