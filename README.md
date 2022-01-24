@@ -23,4 +23,4 @@ https://docs.google.com/document/d/1uO_qwd5Lmk6sGKRYmUe4-aAjuzBSKFA3NvTRoCVywJg/
   
 https://www.youtube.com/watch?v=E-bk6EkNsnY  
 
-
+https://www.youtube.com/watch?v=TrAqZ-NpFuk&t=13s  
