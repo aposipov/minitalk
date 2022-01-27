@@ -19,6 +19,8 @@ https://www.youtube.com/playlist?list=PLePq6qvrIxC8vTaCdHZKEX1czKsZaxArB пле�
 https://www.youtube.com/playlist?list=PLfqABt5AS4FkW5mOn2Tn9ZZLLDwA3kZUY  плейлист по юникс процессам  
 https://www.gnu.org/software/libc/manual/html_node/Signal-Handling.html#Signal-Handling manual GNU  
   
+https://github.com/mlanca-c/Minitalk  ??? проверить
+  
 https://docs.google.com/document/d/1uO_qwd5Lmk6sGKRYmUe4-aAjuzBSKFA3NvTRoCVywJg/edit  
   
 https://www.youtube.com/watch?v=E-bk6EkNsnY  
